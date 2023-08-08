@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Login</title>
+  <style>
+    body{
+      /*background-image: url(../../static/img/background.png);*/
+      background-color: #bbbbbb; "
+      background-repeat: no-repeat;
+      background-size: 1349px 600px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container.mt-5.p-5 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9); /* Lighter background color */
+      border-radius: 10px;
+      padding: 30px; /* Increase padding for more space inside the container */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    }
+
+  </style>
+</head>
+<body>
+<img class="EshopLogo1" src="../../static/img/logo.png" th:src="@{/img/logo.png}" alt="" width="100" height="100"/>
+<div class="row p-50 h-100">
+  <!-- background color -->
+  <div class="col-7 ">
+    <div class="container mt-5 p-5">
+
+      <div class="col-11">
+        <form th:action="@{~/user/login}" method="post">
+          <div class="text-center mb-3" >
+            <p class="h1 mb-5" style="font-size: 40px; font-family:Inter;" >Hey!!</p>
+            <h2 style="color: rgba(0, 0, 0, 0.32); font-family: Inter; font-size: 20px; font-style: normal;">Login to continue.</h2>
+          </div>
+
+          <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+
+            Invalid email or password.
+            <!-- login button-->
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          <div class="row pt-4">
+            <label for="email">Email</label> <!-- email field -->
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+
+          </div>
+          <div class="row pt-4">
+            <label for="password">Password</label> <!-- password field -->
+            <input type="password" class="form-control" id="password" placeholder="Enter your password"   name="password">
+          </div>
+
+          <div class="row pt-4">
+            <div class="text-center">
+              <button type="submit" style="background-color: #B08994;">Login</button>
+
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="text-center">
+              <a th:href="@{~/user/register}" style="color: #B08994" >Don't have an account?Register</a>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
