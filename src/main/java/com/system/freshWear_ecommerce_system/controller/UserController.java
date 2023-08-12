@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.List;
 
@@ -35,13 +34,11 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerUser(@Valid UserDto userDto) throws IOException {
-
-
-        System.out.println(userDto.getRole());
         userService.register(userDto);
 
-        return "redirect:/user/sendEmail/"+userDto.getEmail();
+        return "redirect:/user/profile"; // Redirect to the user's profile or dashboard
     }
+
 
     @GetMapping("/login")
     public String login(){

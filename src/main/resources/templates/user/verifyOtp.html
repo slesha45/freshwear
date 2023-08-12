@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OTP Verification</title>
+  <title>Online Wear</title>
+  <link rel="icon" th:href="@{/img/logo.png}" href="../../static/img/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body style="background-image: url(../../static/img/back.jpg)";>
+<body>
 <div class="container mt-5">
-  <h1 class="text-center mb-4" style="color: white">OTP Verification</h1>
+  <h1 class="text-center mb-4">OTP Verification</h1>
   <div class="row justify-content-center">
     <div class="col-md-6">
       <form th:action="@{/user/verifyOtp}" method="post" class="border p-4 rounded bg-light">

@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
     private final OtpRepo otpRepo;
     @Override
     public void register(UserDto userDto) throws IOException {
-        User user = userRepo.findByEmail(userDto.getEmail()).orElse(new User());
+        User user = new User();
         user.setEmail(userDto.getEmail());
         user.setPassword(PasswordEncoderUtil.getInstance().encode(userDto.getPassword()));
         user.setFirstName(userDto.getFirstName());
@@ -89,12 +89,10 @@ public class UserServiceImpl implements UserService {
             // Update the item with the resized image path
             user.setImage(imageName + "_resized" + fileExtension);
         }
-        user.setActive(false);
-
+        user.setActive(true); // Directly set the user to active
         user.setRole(userDto.getRole());
         userRepo.save(user);
     }
-
 
     @Override
     public void sendEmail(String email) {
@@ -120,7 +118,7 @@ public class UserServiceImpl implements UserService {
             mimeMessageHelper.setTo(email);
             mimeMessageHelper.setText(html, true);
             mimeMessageHelper.setSubject("Registration");
-            mimeMessageHelper.setFrom("khadkacrystal23@gmail.com");;
+            mimeMessageHelper.setFrom("dahalslesha@gmail.com");;
 
 
             taskExecutor.execute(new Thread() {
@@ -188,7 +186,7 @@ public class UserServiceImpl implements UserService {
             mimeMessageHelper.setTo(email);
             mimeMessageHelper.setText(html, true);
             mimeMessageHelper.setSubject("Registration");
-            mimeMessageHelper.setFrom("khadkacrystal23@gmail.com");;
+            mimeMessageHelper.setFrom("dahalslesha@gmail.com");;
 
 
             taskExecutor.execute(new Thread() {
@@ -223,6 +221,7 @@ public class UserServiceImpl implements UserService {
         user.setPhoneNumber(userDto.getPhone());
         userRepo.save(user);
     }
+
 
 
     @Override
